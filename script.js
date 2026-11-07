@@ -59,8 +59,8 @@ function initIntro(reduceMotion){
   const reels = Array.from(document.querySelectorAll('.reel'));
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  const BASE_SPIN = 850;
-  const STAGGER = 260;
+  const BASE_SPIN = 500;   // was 850 — reels start locking sooner
+  const STAGGER = 160;    // was 260 — tighter gap between each letter locking
 
   let maxStop = 0;
 
@@ -83,14 +83,14 @@ function initIntro(reduceMotion){
 
   // Finishing effect: flash + ring, light sweep, underline, then a soft exit
   const t = maxStop;
-  window.setTimeout(() => introEl.classList.add('intro-flash'), t + 250);
-  window.setTimeout(() => introEl.classList.add('intro-sweep-go'), t + 550);
-  window.setTimeout(() => introEl.classList.add('intro-line-go'), t + 800);
-  window.setTimeout(() => introEl.classList.add('intro-exit'), t + 1700);
-  window.setTimeout(finishIntro, t + 2300);
+  window.setTimeout(() => introEl.classList.add('intro-flash'), t + 200);
+  window.setTimeout(() => introEl.classList.add('intro-sweep-go'), t + 420);
+  window.setTimeout(() => introEl.classList.add('intro-line-go'), t + 620);
+  window.setTimeout(() => introEl.classList.add('intro-exit'), t + 1300);
+  window.setTimeout(finishIntro, t + 1900);
 
-  // Safety net: never block the site for more than ~8s
-  window.setTimeout(finishIntro, 9000);
+  // Safety net: never block the site for more than ~6s
+  window.setTimeout(finishIntro, 6000);
 }
 
 /* ----------------------------------------------------------

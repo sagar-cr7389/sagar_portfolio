@@ -781,7 +781,8 @@ a.contact-card-value:hover{ color:var(--accent); }
    ============================================================ */
 @media (max-width:1024px){
   .hero-inner{ grid-template-columns:1fr; }
-  .hero-visual{ order:-1; max-width:520px; margin:0 auto 20px; }
+  /* hide the terminal panel on tablet/mobile — the hero text is the focus */
+  .hero-visual{ display:none; }
   .about-grid{ grid-template-columns:1fr; }
   .skills-grid{ grid-template-columns:repeat(2,1fr); }
   .project-card-inner{ grid-template-columns:1fr; }
@@ -794,11 +795,13 @@ a.contact-card-value:hover{ color:var(--accent); }
   .menu-toggle{ display:flex; }
   .section{ padding-left:24px; padding-right:24px; }
   .contact-layout{ grid-template-columns:1fr; }
+  /* tone down rain so it never covers text on smaller screens */
+  .page-rain{ opacity:.0 !important; }
 }
 
 @media (max-width:640px){
   .navbar{ padding:16px 20px; }
-  .hero{ padding:40px 20px 80px; min-height:auto; }
+  .hero{ padding:40px 20px 64px; min-height:auto; }
   .hero-stats{ gap:26px; }
   .skills-grid{ grid-template-columns:1fr; }
   .cert-grid{ grid-template-columns:1fr; }
@@ -808,4 +811,6 @@ a.contact-card-value:hover{ color:var(--accent); }
   .cert-card{ padding:24px; min-height:0; }
   .site-footer{ flex-direction:column; text-align:center; }
   .terminal-body{ font-size:.78rem; }
+  /* hide rain completely on phones — it covers reading column at narrow width */
+  .page-rain{ display:none; }
 }
